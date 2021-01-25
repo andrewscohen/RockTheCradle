@@ -3,7 +3,7 @@
 </p>
 
 ## Welcome!
-Rock the Cradle is a clone of [Rent the Runway](https://www.renttherunway.com/) where users are able to rent high end fashion items without the need to invest in purchasing them outright. Rock the Cradle takes this concept and refocuses the target audience to be families with babies and young children. In addition to clothing, Rock the Cradle will also rent offer rentals of high dollar items associated with young children (cribs, rockers, strollers, etc).
+Rock the Cradle is a clone of [Rent the Runway](https://www.renttherunway.com/) where users are able to rent high end fashion items without the need to invest in purchasing them outright. Rock the Cradle takes this concept and refocuses the target audience to be families with newbords and young children. In addition to clothing, Rock the Cradle will offer rentals of high dollar items associated with young children (cribs, rockers, strollers, etc).
 
 ---
 ## **Table of Contents**
