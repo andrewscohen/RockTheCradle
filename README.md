@@ -5,6 +5,17 @@
 ## Welcome!
 Rock the Cradle is a clone of [Rent the Runway](https://www.renttherunway.com/) where users are able to rent high end fashion items without the need to invest in purchasing them outright. Rock the Cradle takes this concept and refocuses the target audience to be families with babies and young children. In addition to clothing, Rock the Cradle will also rent offer rentals of high dollar items associated with young children (cribs, rockers, strollers, etc).
 
+---
+## **Table of Contents**
+---
+
+* [API Documentation](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/API-Documentation)
+* [Database Schema](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/Database-Schema)
+* [Front End Routes](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/Front-End-Routes)
+* [User Stories](https://github.com/andrewscohen/2020.11.badReads/wiki/User-Stories)
+* [Minimum Viable Product Feature List](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/Minimum-Viable-Product-Feature-List)
+* [User Stories](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/User-Stories)
+---
 This is a full stack application utilizing the following technologies: 
 ### Backend Technologies:
 <img src="https://img.icons8.com/color/48/000000/postgreesql.png" width="26px" > 
@@ -22,13 +33,4 @@ This is a full stack application utilizing the following technologies:
 <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png" width="26"> 
 <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" width="26px">
 
----
-## **Table of Contents**
----
 
-* [API Documentation](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/API-Documentation)
-* [Database Schema](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/Database-Schema)
-* [Front End Routes](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/Front-End-Routes)
-* [User Stories](https://github.com/andrewscohen/2020.11.badReads/wiki/User-Stories)
-* [Minimum Viable Product Feature List](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/Minimum-Viable-Product-Feature-List)
-* [User Stories](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/User-Stories)
