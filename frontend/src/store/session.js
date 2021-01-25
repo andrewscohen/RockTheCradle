@@ -38,18 +38,44 @@ export const restoreUser = () => async dispatch => {
 };
 
 // SIGNUP ACTION
-export const signup = (user) => async (dispatch) => {
-    const { username, email, password } = user;
-    const res = await fetch("/api/users", {
-        method: 'POST',
-        body: JSON.stringify({
-            username,
-            email,
-            password,
-        }),
+// export const signup = (user) => async (dispatch) => {
+//     const { username, email, password } = user;
+//     const res = await fetch("/api/users", {
+//         method: 'POST',
+//         body: JSON.stringify({
+//             username,
+//             email,
+//             password,
+//         }),
+//     });
+//     dispatch(setUser(res.data.user));
+//     return res;
+// };
+
+// AWS
+export const createUser = (user) => async (dispatch) => {
+    const { images, image, username, email, password } = user;
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("email", email);
+    formData.append("password", password);
+
+    // for multiple files
+    if (images && images.length !== 0) {
+        for (var i = 0; i < images.length; i++) {
+            formData.append("images", images[i]);
+        }
+    }
+
+    // for single file
+    if (image) formData.append("image", image);
+
+    const res = await fetch(`/api/users/`, {
+        method: "POST",
+        body: formData,
     });
+
     dispatch(setUser(res.data.user));
-    return res;
 };
 
 // LOGOUT ACTION
@@ -75,5 +101,10 @@ const sessionReducer = (state = initialState, action) => {
             return state;
     }
 };
+
+// To be added
+// switch (action.type) {
+//     case SET_USER:
+//       return { ...state, user: action.payload };
 
 export default sessionReducer;
