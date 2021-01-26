@@ -7,8 +7,24 @@ module.exports = (sequelize, DataTypes) => {
     productImg: DataTypes.STRING,
     categoryId: DataTypes.INTEGER
   }, {});
-  Product.associate = function(models) {
-    // associations can be defined here
+  Product.associate = function (models) {
+    const ProductTagMap = {
+      foreignKey: "productId",
+      through: models.ProductTag,
+      otherKey: "tagId"
+    }
+
+    const ProductSizeMap = {
+      foreignKey: "productId",
+      through: models.ProductSize,
+      otherKey: "sizeId"
+    }
+
+    Product.belongsToMany(models.Tag, ProductTagMap)
+    Product.belongsToMany(models.Size, ProductSizeMap)
+    Product.belongsTo(models.Category, { foreignKey: "categoryId" })
+    Product.hasMany(models.Review, { foreignKey: "productId" })
+    Product.hasMany(models.OrderItem, { foreignKey: "productId" })
   };
   return Product;
 };

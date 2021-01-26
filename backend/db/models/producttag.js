@@ -4,8 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     tagId: DataTypes.INTEGER,
     productId: DataTypes.INTEGER
   }, {});
-  ProductTag.associate = function(models) {
-    // associations can be defined here
+  ProductTag.associate = function (models) {
   };
   return ProductTag;
 };
