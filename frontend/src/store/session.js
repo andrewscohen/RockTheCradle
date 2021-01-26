@@ -52,6 +52,32 @@ export const signup = (user) => async (dispatch) => {
     return res;
 };
 
+// AWS
+export const createUser = (user) => async (dispatch) => {
+    const { images, image, username, email, password } = user;
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("email", email);
+    formData.append("password", password);
+
+    // for multiple files
+    if (images && images.length !== 0) {
+        for (var i = 0; i < images.length; i++) {
+            formData.append("images", images[i]);
+        }
+    }
+
+    // for single file
+    if (image) formData.append("image", image);
+
+    const res = await fetch(`/api/users/`, {
+        method: "POST",
+        body: formData,
+    });
+
+    dispatch(setUser(res.data.user));
+};
+
 // LOGOUT ACTION
 export const logout = () => async (dispatch) => {
     const res = await fetch('/api/session', {
@@ -75,5 +101,10 @@ const sessionReducer = (state = initialState, action) => {
             return state;
     }
 };
+
+// To be added
+// switch (action.type) {
+//     case SET_USER:
+//       return { ...state, user: action.payload };
 
 export default sessionReducer;
