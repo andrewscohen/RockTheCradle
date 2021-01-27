@@ -26,12 +26,18 @@ function Navigation({ isLoaded }) {
     return (
         <div>
             <nav className="fixed bg-grey-600 shadow-md h-32 z-50 w-full px-5 py-2 flex justify-between items-center cursor-pointer">
-                <NavLink exact to="/" className="hover:underline">Home</NavLink>
-                <NavLink to='#' className="hover:underline">Clothing</NavLink>
-                <NavLink to='#' className="hover:underline">Accessories</NavLink>
-                <NavLink to='#' className="hover:underline">Gear</NavLink>
-                <div className="flex items-end space-x-3 p-1 hover:underline">
-                    {isLoaded && sessionLinks}
+                <div className="flex">
+                    <NavLink exact to="/" className="h-20 w-20 self-center items-center"><img src="https://rtcmediabucket.s3.amazonaws.com/assets/rtc-transparent.png" alt="logo" /></NavLink>
+                </div>
+                <div className="flex w-full">
+                    <div className="flex justify-between w-full pl-6">
+                        <NavLink to='#' className="hover:underline">Clothing</NavLink>
+                        <NavLink to='#' className="hover:underline">Accessories</NavLink>
+                        <NavLink to='#' className="hover:underline">Gear</NavLink>
+                    </div>
+                    <div className="flex justify-end items-end space-x-3 p-1 hover:underline w-full">
+                        {isLoaded && sessionLinks}
+                    </div>
                 </div>
             </nav>
         </div >
