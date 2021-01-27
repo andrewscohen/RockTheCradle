@@ -4,10 +4,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import App from './App';
+import './index.css';
 import configureStore from './store';
 import { restoreCSRF, fetch } from './store/csrf';
 import * as sessionActions from './store/session';
-import './index.css';
 
 const store = configureStore();
 
