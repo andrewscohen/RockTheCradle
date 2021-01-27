@@ -6,11 +6,16 @@ const { User } = require('../../db/models');
 
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
+const productsRouter = require('./product');
 const router = require('express').Router();
 
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
+
+router.use('/products', productsRouter);
+
+
 
 router.post('/test', function (req, res) {
     res.json({ requestBody: req.body });
