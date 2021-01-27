@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 
+// ANDREW'S SOLUTION (CLASSNAMES ARE TAILWINDCSS)
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
 
