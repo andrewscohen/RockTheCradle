@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 
-// ANDREW'S SOLUTION (CLASSNAMES ARE TAILWINDCSS)
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
 
@@ -25,7 +24,7 @@ function Navigation({ isLoaded }) {
     }
     return (
         <div>
-            <nav className="fixed bg-grey-600 shadow-md h-32 z-50 w-full px-5 py-2 flex justify-between items-center cursor-pointer">
+            <nav className="sticky bg-grey-600 shadow-md h-32 z-50 w-full px-5 py-2 flex justify-between items-center cursor-pointer">
                 <div className="flex">
                     <NavLink exact to="/" className="h-20 w-20 self-center items-center"><img src="https://rtcmediabucket.s3.amazonaws.com/assets/rtc-transparent.png" alt="logo" /></NavLink>
                 </div>
