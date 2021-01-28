@@ -19,9 +19,6 @@ const validateLogin = [
     handleValidationErrors,
 ];
 
-// XSRF-TOKEN: Jp64wWOe-mq75jPbhn769xauxcD0QiXneQAc`
-
-
 // Log in
 router.post(
     '/',
