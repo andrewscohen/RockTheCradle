@@ -10,9 +10,7 @@ const usersRouter = require('./users.js');
 const productsRouter = require('./product');
 
 router.use('/session', sessionRouter);
-
 router.use('/users', usersRouter);
-
 router.use('/products', productsRouter);
 
 
