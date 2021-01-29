@@ -9,7 +9,7 @@ const HomePage = () => {
         dispatch(productActions.getAllProducts())
     }, [dispatch]);
 
-    const products = useSelector((state) => state.productsList.products)
+    const products = useSelector((state) => Object.values(state.productsList))
 
     return (
         <div className="grid p-4 ">
