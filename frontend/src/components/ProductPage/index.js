@@ -44,7 +44,7 @@ const ProductPage = () => {
 
         }
     }, [product])
-
+    console.log(sizes)
     let rentalPrice;
     return (
         // Container
@@ -68,11 +68,13 @@ const ProductPage = () => {
                         <div>
                             <form>
                                 <div className="border-b-2 border-gray-300 p-2">
-                                    <select>
-                                        {sizes !== '' && sizes.map((size) => (
-                                            <option value={size.id} key={size.id}>{size.size}</option>
-                                        ))}
-                                    </select>
+                                    {sizes && sizes[0].size !== 'n/a' && (
+                                        < select >
+                                            <option>Select a size</option>
+                                            { sizes !== '' && sizes.map((size) => (
+                                                <option value={size.id} key={size.id}>{size.size}</option>
+                                            ))}
+                                        </select>)}
                                 </div>
                                 <p>DELIVERY + RETURN DATES</p>
                                 <div className="mt-1">
