@@ -26,6 +26,7 @@ export const getAllProducts = () => async (dispatch) => {
 
 export const getOneProduct = (id) => async (dispatch) => {
     const response = await fetch(`/api/products/${id}`)
+    // console.log("RESPONSE:   ", response.data)
     dispatch(setProduct(response.data))
 }
 

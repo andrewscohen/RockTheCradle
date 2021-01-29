@@ -32,21 +32,26 @@ const ProductPage = () => {
             setCategory(product.category)
             setContent(product.content)
             setRating(product.rating)
-            setSize(product.size)
+            setSize(product.Sizes)
             // setTag(product.name)
         }
     }, [product])
 
+
     return (
+        // Container
         <div>
             {product && (
                 <>
-                    <p>{product.name}</p>
-                    <p>{product.description}</p>
-                    <p>{product.retailPrice}</p>
-                    <img src={product.productImg} alt={product.name} />
-                    <p>{product.category}</p>
-                    <p>{product.size}</p>
+                    {/* Left Side */}
+                    <div>
+                        <img src={product.productImg} alt={product.name} />
+                    </div>
+                    <div>
+
+                    </div>
+
+
                 </>
             )}
         </div>
