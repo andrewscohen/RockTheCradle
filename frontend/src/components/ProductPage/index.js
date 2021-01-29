@@ -10,14 +10,15 @@ const ProductPage = () => {
     const product = useSelector((state) => state.productsList[id])
 
     const [name, setName] = useState('');
+    const [brand, setBrand] = useState('');
     const [description, setDescription] = useState('');
     const [retailPrice, setRetailPrice] = useState(0);
     const [productImg, setProductImg] = useState('');
     const [category, setCategory] = useState('');
     const [content, setContent] = useState('');
     const [rating, setRating] = useState(0);
-    const [size, setSize] = useState('');
-    const [tag, setTag] = useState('');
+    const [sizes, setSize] = useState('');
+    const [tags, setTag] = useState('');
     const [postalCode, setPostalCode] = useState('');
     const [inventoryNum, setInventoryNum] = useState('');
 
@@ -28,6 +29,7 @@ const ProductPage = () => {
     useEffect(() => {
         if (product) {
             setName(product.name)
+            setBrand(product.brand)
             setDescription(product.description)
             setRetailPrice(product.retailPrice)
             setProductImg(product.productImg)
@@ -36,11 +38,14 @@ const ProductPage = () => {
             setRating(product.rating)
             setSize(product.Sizes)
             setPostalCode('')
-            setInventoryNum(product.inventoryNum)
-            // setTag(product.name)
+            // setInventoryNum(product.sizes.ProductSizeinventoryNum)
+            // console.log("PRODUCT SIZES:   ", product.Sizes)
+            // console.log("Inventory Num:   ", product.Sizes[0].ProductSize.inventoryNum)
+
         }
     }, [product])
 
+    let rentalPrice;
     return (
         // Container
         <div className='flex justify-evenly pt-10'>
@@ -48,14 +53,17 @@ const ProductPage = () => {
                 <>
                     {/* Left Side */}
                     <div>
-                        <img src={product.productImg} alt={product.name} className="h-80 w-80 border-r-2 border-gray-300" />
+                        <img src={productImg} alt={name} className="h-80 w-80 border-r-2 border-gray-300" />
                     </div>
                     {/* Right Side */}
                     <div className="bg-white border-t-2 border-b-2 border-gray-300">
                         <div className="border-b-2 border-gray-300 p-2">
-                            <h2 className="font-bold font-serif text-2xl">{product.brand}</h2>
-                            <h3 className="text-sm">{product.name}</h3>
-                            <p className="text-xs text-gray-600 pt-1">${product.retailPrice} original retail</p>
+                            <h2 className="font-bold font-serif text-2xl">{brand}</h2>
+                            <h3 className="text-sm">{name}</h3>
+                            <div className="flex justify-between">
+                                <p className="text-xs text-gray-600 pt-1 line-through">${retailPrice} original retail</p>
+                                <p className="text-xs text-gray-600 pt-1">${rentalPrice = Math.round(((retailPrice * .15) / 5) * 5)} rental price</p>
+                            </div>
                         </div>
                         <div>
                             <form>
@@ -65,11 +73,10 @@ const ProductPage = () => {
 
                                     <select>
                                         <option>Select Size</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                        {sizes !== '' && sizes.map((size) => (
+                                            <option
+                                                value={size.id} key={size.id}>{size.size}</option>
+                                        ))}
                                     </select>
                                 </div>
                                 <p>DELIVERY + RETURN DATES</p>
