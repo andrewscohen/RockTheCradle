@@ -1,6 +1,6 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
-const { Product, Category, Review, Tag, Size } = require('../../db/models')
+const { Product, Category, Review, Tag, Size, ProductSize, ProductTag } = require('../../db/models')
 
 const router = express.Router();
 
