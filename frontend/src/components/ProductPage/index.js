@@ -68,14 +68,9 @@ const ProductPage = () => {
                         <div>
                             <form>
                                 <div className="border-b-2 border-gray-300 p-2">
-                                    <label>ZIP CODE</label>
-                                    <input type='text' name='postalCode' className="border-gray-300 pb-2 border-opacity-100" />
-
                                     <select>
-                                        <option>Select Size</option>
                                         {sizes !== '' && sizes.map((size) => (
-                                            <option
-                                                value={size.id} key={size.id}>{size.size}</option>
+                                            <option value={size.id} key={size.id}>{size.size}</option>
                                         ))}
                                     </select>
                                 </div>
