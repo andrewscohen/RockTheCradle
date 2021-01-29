@@ -12,7 +12,6 @@ router.get('/', asyncHandler(async (req, res) => {
 
 router.get('/:id', asyncHandler(async (req, res) => {
     const productId = await parseInt(req.params.id, 10);
-    console.log(productId);
     const productInfo = await Product.findByPk(productId, {
         include: [
             { model: Category },
