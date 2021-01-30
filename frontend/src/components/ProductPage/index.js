@@ -19,8 +19,8 @@ const ProductPage = () => {
     const [rating, setRating] = useState(0);
     const [sizes, setSize] = useState('');
     const [tags, setTag] = useState('');
-    const [postalCode, setPostalCode] = useState('');
     const [inventoryNum, setInventoryNum] = useState('');
+    const [buttonClick, setButtonClick] = useState('false')
 
     useEffect(() => {
         dispatch(productActions.getOneProduct(id))
@@ -37,45 +37,54 @@ const ProductPage = () => {
             setContent(product.content)
             setRating(product.rating)
             setSize(product.Sizes)
-            setPostalCode('')
             // setInventoryNum(product.sizes.ProductSizeinventoryNum)
             // console.log("PRODUCT SIZES:   ", product.Sizes)
             // console.log("Inventory Num:   ", product.Sizes[0].ProductSize.inventoryNum)
 
         }
     }, [product])
-    console.log(sizes)
     let rentalPrice;
     return (
         // Container
         <div className='flex justify-evenly pt-10'>
             {product && (
                 <>
-                    {/* Left Side */}
+                    {/* Start of Left Side */}
                     <div>
-                        <img src={productImg} alt={name} className="h-80 w-80 border-r-2 border-gray-300" />
+                        <img src={productImg} alt={name} className="h-80 w-80 border-gray-300 shadow-lg rounded" />
                     </div>
-                    {/* Right Side */}
+
+                    {/* End of Left Side */}
+                    {/* Start of Right Side */}
+
+                    {/* Start of Information Block */}
                     <div className="bg-white border-t-2 border-b-2 border-gray-300">
                         <div className="border-b-2 border-gray-300 p-2">
                             <h2 className="font-bold font-serif text-2xl">{brand}</h2>
                             <h3 className="text-sm">{name}</h3>
                             <div className="flex justify-between">
+                                <p className="text-xs pt-1 pr-2">${rentalPrice = Math.round(((retailPrice * .15) / 5) * 5)} rental price</p>
                                 <p className="text-xs text-gray-600 pt-1 line-through">${retailPrice} original retail</p>
-                                <p className="text-xs text-gray-600 pt-1">${rentalPrice = Math.round(((retailPrice * .15) / 5) * 5)} rental price</p>
                             </div>
                         </div>
+                        {/* End of Information Block */}
+                        {/* Start of Cart Form */}
                         <div>
                             <form>
-                                <div className="border-b-2 border-gray-300 p-2">
+                                {/* START: Size Block */}
+                                <div className="flex justify-between border-b-2 border-gray-300 pb-2 ">
+                                    <p className="self-end">Size</p>
                                     {sizes && sizes[0].size !== 'n/a' && (
-                                        < select >
-                                            <option>Select a size</option>
+                                        < select className="border border-black mt-2">
+                                            <option>Select</option>
                                             { sizes !== '' && sizes.map((size) => (
                                                 <option value={size.id} key={size.id}>{size.size}</option>
                                             ))}
                                         </select>)}
                                 </div>
+                                {/* END: Size Block */}
+
+                                {/* START: Calender Block */}
                                 <p>DELIVERY + RETURN DATES</p>
                                 <div className="mt-1">
                                     <div className="flex">
@@ -105,13 +114,15 @@ const ProductPage = () => {
                                 </div>
                             </form>
                         </div>
+                        {/* END: Calender Block */}
+
+                        {/* START: Submit Button */}
                         <div>
                             <button className="bg-black text-white hover:bg-opacity-75 w-full mt-2 rounded-sm text-xs p-2">Add to bag</button>
                         </div>
                     </div>
                 </>
-            )
-            }
+            )}
         </div >
     )
 }
