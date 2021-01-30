@@ -1,12 +1,21 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import * as sessionActions from '../../store/session';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
-
+    const dispatch = useDispatch();
+    const history = useHistory();
     let sessionLinks;
+
+    const logInDemo = (e) => {
+        e.preventDefault();
+        dispatch(sessionActions.login({ credential: 'Demo-lition', password: 'password' }))
+        history.push('/')
+    }
+
     if (sessionUser) {
         sessionLinks = (
             <ProfileButton user={sessionUser} />
@@ -19,6 +28,8 @@ function Navigation({ isLoaded }) {
                 </NavLink>
                 <p>I</p>
                 <NavLink to="/signup">Sign up</NavLink>
+                <button
+                    onClick={(event) => logInDemo(event)}>Demo User</button>
             </>
         );
     }

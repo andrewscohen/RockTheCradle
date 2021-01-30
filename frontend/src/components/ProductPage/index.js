@@ -14,11 +14,10 @@ const ProductPage = () => {
     const [description, setDescription] = useState('');
     const [retailPrice, setRetailPrice] = useState(0);
     const [productImg, setProductImg] = useState('');
-    const [content, setContent] = useState('');
-    const [rating, setRating] = useState(0);
     const [sizes, setSize] = useState('');
-    const [buttonClick, setButtonClick] = useState('false')
     const [productQty, setProductQty] = useState(1)
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('')
 
     useEffect(() => {
         dispatch(productActions.getOneProduct(id))
@@ -31,16 +30,17 @@ const ProductPage = () => {
             setDescription(product.description)
             setRetailPrice(product.retailPrice)
             setProductImg(product.productImg)
-            setContent(product.content)
-            setRating(product.rating)
             setSize(product.Sizes)
             setProductQty(productQty);
+            // setStartDate('');
+            // setEndDate('');
+
             // setInventoryNum(product.sizes.ProductSizeinventoryNum)
             // console.log("PRODUCT SIZES:   ", product.Sizes)
             // console.log("Inventory Num:   ", product.Sizes[0].ProductSize.inventoryNum)
 
         }
-    }, [product])
+    }, [product, productQty])
 
     let rentalPrice;
     return (
@@ -102,8 +102,21 @@ const ProductPage = () => {
                                 {/* END: Size Block */}
 
                                 {/* START: Calender Block */}
-                                <p>DELIVERY + RETURN DATES</p>
-                                <div className="mt-1">
+                                <div className="flex text-xs justify-center p-2 font-semibold">
+                                    <p>DELIVERY + RETURN DATES</p>
+                                </div>
+                                <div className="flex justify-center text-xs p-2">
+                                    <div>
+                                        <label>Start Date: </label>
+                                        <input type="date" id="startDate" name="startDate" value={startDate} className="w-21" />
+                                    </div>
+                                    <p className="pr-2 pl-2">|</p>
+                                    <div>
+                                        <label>End Date: </label>
+                                        <input type="date" id="endDate" name="endDate" value={endDate} className="w-21" />
+                                    </div>
+                                </div>
+                                {/* <div className="mt-1">
                                     <div className="flex">
                                         <div>
                                             <input
@@ -128,7 +141,7 @@ const ProductPage = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </form>
                         </div>
                         {/* END: Calender Block */}
