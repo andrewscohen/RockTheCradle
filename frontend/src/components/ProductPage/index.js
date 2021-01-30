@@ -14,13 +14,11 @@ const ProductPage = () => {
     const [description, setDescription] = useState('');
     const [retailPrice, setRetailPrice] = useState(0);
     const [productImg, setProductImg] = useState('');
-    const [category, setCategory] = useState('');
     const [content, setContent] = useState('');
     const [rating, setRating] = useState(0);
     const [sizes, setSize] = useState('');
-    const [tags, setTag] = useState('');
-    const [inventoryNum, setInventoryNum] = useState('');
     const [buttonClick, setButtonClick] = useState('false')
+    const [productQty, setProductQty] = useState(1)
 
     useEffect(() => {
         dispatch(productActions.getOneProduct(id))
@@ -33,19 +31,19 @@ const ProductPage = () => {
             setDescription(product.description)
             setRetailPrice(product.retailPrice)
             setProductImg(product.productImg)
-            setCategory(product.category)
             setContent(product.content)
             setRating(product.rating)
             setSize(product.Sizes)
+            setProductQty(productQty);
             // setInventoryNum(product.sizes.ProductSizeinventoryNum)
             // console.log("PRODUCT SIZES:   ", product.Sizes)
             // console.log("Inventory Num:   ", product.Sizes[0].ProductSize.inventoryNum)
 
         }
     }, [product])
+
     let rentalPrice;
     return (
-        // Container
         <div className='flex justify-evenly pt-10'>
             {product && (
                 <>
@@ -63,8 +61,8 @@ const ProductPage = () => {
                             <h2 className="font-bold font-serif text-2xl">{brand}</h2>
                             <h3 className="text-sm">{name}</h3>
                             <div className="flex justify-between">
-                                <p className="text-xs pt-1 pr-2">${rentalPrice = Math.round(((retailPrice * .15) / 5) * 5)} rental price</p>
                                 <p className="text-xs text-gray-600 pt-1 line-through">${retailPrice} original retail</p>
+                                <p className="text-xs pt-1 pr-2">${rentalPrice = Math.round(((retailPrice * .04) / 5) * 5)}/day to rent</p>
                             </div>
                         </div>
                         {/* End of Information Block */}
@@ -72,15 +70,34 @@ const ProductPage = () => {
                         <div>
                             <form>
                                 {/* START: Size Block */}
-                                <div className="flex justify-between border-b-2 border-gray-300 pb-2 ">
-                                    <p className="self-end">Size</p>
-                                    {sizes && sizes[0].size !== 'n/a' && (
-                                        < select className="border border-black mt-2">
-                                            <option>Select</option>
-                                            { sizes !== '' && sizes.map((size) => (
-                                                <option value={size.id} key={size.id}>{size.size}</option>
-                                            ))}
-                                        </select>)}
+                                <div className="flex justify-between border-b-2 border-gray-300 pb-2 content-center ">
+                                    <div>
+                                        {sizes && sizes[0].size !== 'n/a' && (
+                                            < select className="text-xs">
+                                                <option>Select Size</option>
+                                                { sizes !== '' && sizes.map((size) => (
+                                                    <option value={size.id} key={size.id}>{size.size}</option>
+                                                ))}
+                                            </select>)}
+                                    </div>
+                                    <div>
+                                        <label className="text-xs">Quantity</label>
+                                        <select
+                                            className="text-xs"
+                                            value={productQty}
+                                            onChange={(event) => setProductQty(event.target.value)}>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 {/* END: Size Block */}
 
@@ -122,7 +139,8 @@ const ProductPage = () => {
                         </div>
                     </div>
                 </>
-            )}
+            )
+            }
         </div >
     )
 }
