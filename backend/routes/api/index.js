@@ -8,12 +8,12 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const productsRouter = require('./product');
+const ordersRouter = require('./order');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/products', productsRouter);
-
-
+router.use('/orders', ordersRouter);
 
 router.post('/test', function (req, res) {
     res.json({ requestBody: req.body });

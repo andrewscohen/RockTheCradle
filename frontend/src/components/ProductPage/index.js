@@ -15,6 +15,7 @@ const ProductPage = () => {
     const [retailPrice, setRetailPrice] = useState(0);
     const [productImg, setProductImg] = useState('');
     const [sizes, setSize] = useState('');
+    const [selectedSize, setSelectedSize] = useState('');
     const [productQty, setProductQty] = useState(1)
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('')
@@ -42,6 +43,19 @@ const ProductPage = () => {
         }
     }, [product, productQty])
 
+
+    const onSubmit = (event) => {
+        event.preventDefault()
+        const formSubmission = {
+            id,
+            size: product.Sizes[selectedSize].size,
+            productQty,
+            startDate,
+            endDate
+        }
+        console.log(formSubmission);
+    }
+
     let rentalPrice;
     return (
         <div className='flex justify-evenly pt-10'>
@@ -68,14 +82,17 @@ const ProductPage = () => {
                         {/* End of Information Block */}
                         {/* Start of Cart Form */}
                         <div>
-                            <form>
+                            <form onSubmit={onSubmit}>
                                 {/* START: Size Block */}
                                 <div className="flex justify-between border-b-2 border-gray-300 pb-2 content-center ">
                                     <div>
                                         {sizes && sizes[0].size !== 'n/a' && (
-                                            < select className="text-xs">
+                                            < select className="text-xs"
+                                                value={selectedSize}
+                                                onChange={(event) => setSelectedSize(event.target.value)}
+                                            >
                                                 <option>Select Size</option>
-                                                { sizes !== '' && sizes.map((size) => (
+                                                {sizes !== '' && sizes.map((size) => (
                                                     <option value={size.id} key={size.id}>{size.size}</option>
                                                 ))}
                                             </select>)}
@@ -108,12 +125,24 @@ const ProductPage = () => {
                                 <div className="flex justify-center text-xs p-2">
                                     <div>
                                         <label>Start Date: </label>
-                                        <input type="date" id="startDate" name="startDate" value={startDate} className="w-21" />
+                                        <input
+                                            type="date"
+                                            id="startDate"
+                                            name="startDate"
+                                            value={startDate}
+                                            onChange={(event) => setStartDate(event.target.value)}
+                                            className="w-21" />
                                     </div>
                                     <p className="pr-2 pl-2">|</p>
                                     <div>
                                         <label>End Date: </label>
-                                        <input type="date" id="endDate" name="endDate" value={endDate} className="w-21" />
+                                        <input
+                                            type="date"
+                                            id="endDate"
+                                            name="endDate"
+                                            value={endDate}
+                                            onChange={(event) => setEndDate(event.target.value)}
+                                            className="w-21" />
                                     </div>
                                 </div>
                                 {/* <div className="mt-1">
@@ -142,14 +171,15 @@ const ProductPage = () => {
                                         </div>
                                     </div>
                                 </div> */}
+                                <div>
+                                    <button type="submit" className="bg-black text-white hover:bg-opacity-75 w-full mt-2 rounded-sm text-xs p-2">Add to bag</button>
+                                </div>
                             </form>
                         </div>
                         {/* END: Calender Block */}
 
                         {/* START: Submit Button */}
-                        <div>
-                            <button className="bg-black text-white hover:bg-opacity-75 w-full mt-2 rounded-sm text-xs p-2">Add to bag</button>
-                        </div>
+
                     </div>
                 </>
             )

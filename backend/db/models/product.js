@@ -20,7 +20,6 @@ module.exports = (sequelize, DataTypes) => {
       through: models.ProductSize,
       otherKey: "sizeId"
     }
-
     Product.belongsToMany(models.Tag, ProductTagMap)
     Product.belongsToMany(models.Size, ProductSizeMap)
     Product.belongsTo(models.Category, { foreignKey: "categoryId" })

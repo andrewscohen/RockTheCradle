@@ -9,6 +9,7 @@ import HomePage from "./components/HomePage";
 import ProductPage from "./components/ProductPage";
 import ShoppingCart from "./components/ShoppingCart";
 import OrderCheckout from "./components/OrderCheckout";
+import Test from "./components/Test";
 import * as sessionActions from "./store/session";
 
 const App = () => {
@@ -35,11 +36,14 @@ const App = () => {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/cart">
+          <Route path="/orders/:id">
             <ShoppingCart />
           </Route>
           <Route path="/checkout">
             <OrderCheckout />
+          </Route>
+          <Route path="/test">
+            <Test />
           </Route>
         </Switch>
       )}
