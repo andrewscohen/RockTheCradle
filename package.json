@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "description": "<p align=center> <img src=\"https://user-images.githubusercontent.com/67562159/105742635-c5a1ed00-5f09-11eb-9b0e-1f0e91adb7f0.png\" width=350px height=350px/> </p>",
   "main": "index.js",
-  "dependencies": {
-    "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.35",
-    "postcss-cli": "^8.3.1"
-  },
-  "devDependencies": {},
   "scripts": {
     "heroku-postbuild": "npm run build --prefix frontend",
     "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
