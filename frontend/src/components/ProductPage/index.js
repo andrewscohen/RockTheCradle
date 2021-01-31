@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import * as productActions from '../../store/product';
+import productReducer, * as productActions from '../../store/product';
+import { addItemToCart } from '../../store/cart'
 
 
 const ProductPage = () => {
+
     const dispatch = useDispatch();
     const { id } = useParams();
     const product = useSelector((state) => state.productsList[id])
@@ -44,6 +46,14 @@ const ProductPage = () => {
     }, [product, productQty])
 
 
+    // const productOrderTotal = () => {
+    //     const timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+    //     const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    //     const orderTotal = (diffDays * rentalPrice) * productQty;
+    //     return orderTotal;
+    // }
+
+
     const onSubmit = (event) => {
         event.preventDefault()
         const formSubmission = {
@@ -51,9 +61,12 @@ const ProductPage = () => {
             size: product.Sizes[selectedSize].size,
             productQty,
             startDate,
-            endDate
+            endDate,
+            rentalPrice,
+            productImg,
         }
         console.log(formSubmission);
+        dispatch(addItemToCart(formSubmission))
     }
 
     let rentalPrice;
@@ -82,6 +95,11 @@ const ProductPage = () => {
                         {/* End of Information Block */}
                         {/* Start of Cart Form */}
                         <div>
+
+
+
+
+
                             <form onSubmit={onSubmit}>
                                 {/* START: Size Block */}
                                 <div className="flex justify-between border-b-2 border-gray-300 pb-2 content-center ">

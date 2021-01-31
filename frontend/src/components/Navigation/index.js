@@ -1,7 +1,8 @@
-import React from 'react';
+import { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
+
 import * as sessionActions from '../../store/session';
 
 function Navigation({ isLoaded }) {
@@ -45,6 +46,9 @@ function Navigation({ isLoaded }) {
                         <NavLink to='#' className="hover:underline">Accessories</NavLink>
                         <NavLink to='#' className="hover:underline">Gear</NavLink>
                     </div>
+                    <div id="search-bar">
+                        <input placeholder="Search"></input>
+                    </div>
                     <div className="flex justify-end items-end space-x-3 p-1 hover:underline w-full">
                         {isLoaded && sessionLinks}
                     </div>
@@ -53,5 +57,9 @@ function Navigation({ isLoaded }) {
         </div >
     );
 }
+
+// const mapStateToProps = (state) => ({
+//     currentUser: state.user.currentUser
+// });
 
 export default Navigation;

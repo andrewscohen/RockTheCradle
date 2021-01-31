@@ -31,6 +31,17 @@ router.get('/:id', asyncHandler(async (req, res) => {
     res.json(orderInfo)
 }))
 
+router.post('/', asyncHandler(async (req, res) => {
+    const { id, size, productQty, startDate, endDate, rentalPrice, productImg } = req.body;
+    await OrderItem.create({
+        productQty, productPrice: rentalPrice, productId: id, orderId: 1
+    })
+    return res.json({ message: 'success' })
+}))
+
+
+
+
 
 
 module.exports = router;
