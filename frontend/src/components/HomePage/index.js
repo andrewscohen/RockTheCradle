@@ -12,10 +12,10 @@ const HomePage = () => {
     const products = useSelector((state) => Object.values(state.productsList))
 
     return (
-        <div className="grid p-4 ">
+        <div className="grid pt-30 ">
             <ul className="grid grid-flow-col auto-cols-max">
                 {products && products.map((product) => (
-                    <li key={product.id} className="h-12 w-12 p-1 m-7"><Link to={`/products/${product.id}`} >{product.name}</Link></li>
+                    <li key={product.id} className="h-12 w-12 p-1 m-7"><Link to={`/products/${product.id}`}>{product.name}</Link></li>
                 ))}
             </ul>
         </div >

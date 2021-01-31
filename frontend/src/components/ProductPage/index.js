@@ -17,7 +17,7 @@ const ProductPage = () => {
     const [retailPrice, setRetailPrice] = useState(0);
     const [productImg, setProductImg] = useState('');
     const [sizes, setSize] = useState('');
-    const [selectedSize, setSelectedSize] = useState('');
+    const [selectedSize, setSelectedSize] = useState('n/a');
     const [productQty, setProductQty] = useState(1)
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('')
@@ -104,7 +104,7 @@ const ProductPage = () => {
                                 {/* START: Size Block */}
                                 <div className="flex justify-between border-b-2 border-gray-300 pb-2 content-center ">
                                     <div>
-                                        {sizes && sizes[0].size !== 'n/a' && (
+                                        {sizes && (
                                             < select className="text-xs"
                                                 value={selectedSize}
                                                 onChange={(event) => setSelectedSize(event.target.value)}
