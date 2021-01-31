@@ -60,8 +60,6 @@ function Navigation({ isLoaded }) {
         );
     }
 
-
-
     return (
         <nav className="fixed h-14 top-0 bg-red-300 grid grid-cols-10 w-screen">
             <div className="col-start-1 col-end-2">
@@ -99,7 +97,7 @@ function Navigation({ isLoaded }) {
     //             </div>
     //         </nav>
     //     </div >
-    // );
+    // );c
 }
 
 export default Navigation;
