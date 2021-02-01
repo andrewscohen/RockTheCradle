@@ -21,6 +21,56 @@ function Navigation({ isLoaded }) {
         history.push('/')
     }
 
+    if (sessionUser) {
+        sessionLinks = (
+            <ProfileButton user={sessionUser} />
+        );
+    } else {
+        sessionLinks = (
+            <>
+                <div className="flex justify-around mt-7 pr-20">
+                    <NavLink to="/login" className="font-body text-l transition duration-100 hover:underline hover:text-gray-500 ease">
+                        Log in
+                    </NavLink>
+                    <p>I</p>
+                    <NavLink to="/signup" className="font-body text-l transition duration-100 hover:underline hover:text-gray-500 ease">Sign up</NavLink>
+                </div>
+            </>
+        );
+    }
+    return (
+        <nav className="fixed opacity-100 h-20 z-99 bg-white shadow-md grid grid-cols-10 w-screen">
+            <div className="fixed opacity-100 h-20 z-99 shadow-md grid grid-cols-10 w-screen">
+                <div className="col-start-1 col-end-2">
+                    <NavLink exact to="/"><img src="https://rtcmediabucket.s3.amazonaws.com/assets/rtc-transparent.png" alt="logo" className="h-20 ml-20 transition duration-100 hover:shadow-sm ease" /></NavLink>
+                </div>
+
+                <div className="col-start-2 col-end-4">
+                    <div className="flex justify-around mt-7 ">
+                        <NavLink to='#' className="font-body text-ltransition duration-100 hover:underline hover:text-gray-500 ease">Clothing</NavLink>
+                        <NavLink to='#' className="font-body text-ltransition duration-100 hover:underline hover:text-gray-500 ease">Accessories</NavLink>
+                        <NavLink to='#' className="font-body text-l transition duration-100 hover:underline hover:text-gray-500 ease">Gear</NavLink>
+                    </div>
+                </div>
+                <div className='col-start-9 col-end-11 pl-14 '>
+                    <div id="authButtons">
+                        {isLoaded && sessionLinks}
+                    </div>
+                </div>
+            </div>
+        </nav >
+    );
+
+
+
+
+
+
+
+
+
+
+
     // return (
     //     <>
     //         < ul className='nav-bar' >
@@ -42,43 +92,8 @@ function Navigation({ isLoaded }) {
     //     </>
     // );
 
-    if (sessionUser) {
-        sessionLinks = (
-            <ProfileButton user={sessionUser} />
-        );
-    } else {
-        sessionLinks = (
-            <>
-                <NavLink to="/login" className="hover:underline w-full">
-                    Log in
-                    </NavLink>
-                <p>I</p>
-                <NavLink to="/signup" className="hover:underline w-full">Sign up</NavLink>
-                <button
-                    onClick={(event) => logInDemo(event)}>Demo User</button>
-            </>
-        );
-    }
-
-    return (
-        <nav className="fixed h-14 top-0 bg-red-300 grid grid-cols-10 w-screen">
-            <div className="col-start-1 col-end-2">
-                <NavLink exact to="/"><img src="https://rtcmediabucket.s3.amazonaws.com/assets/rtc-transparent.png" alt="logo" className="h-14" /></NavLink>
-            </div>
-
-            <div className="col-start-2 col-end-4">
-                <NavLink to='#'>Clothing</NavLink>
-                <NavLink to='#'>Accessories</NavLink>
-                <NavLink to='#'>Gear</NavLink>
-            </div>
-
-            <div className='col-start-6'>
-                {isLoaded && sessionLinks}
-            </div>
-        </nav>
-    );
     //     <div>
-    //         <nav className="sticky bg-grey-600 shadow-md h-20 z-50 w-full px-5 py-2 flex justify-between items-center cursor-pointer">
+    // <nav className="sticky bg-grey-600 shadow-md h-20 z-50 w-full px-5 py-2 flex justify-between items-center cursor-pointer">
     //             <div className="flex">
 
     //                 <NavLink exact to="/" className="h-20 w-20 self-center items-center"><img src="https://rtcmediabucket.s3.amazonaws.com/assets/rtc-transparent.png" alt="logo" /></NavLink>
