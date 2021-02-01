@@ -60,6 +60,7 @@ const ShoppingCart = () => {
                                             <td key={item.Product.name}>{item.Product.name}</td>
                                             <td key={item.Product.retailPrice}>{item.Product.retailPrice}</td>
                                             {/* <td>{item.Product.Size.size}</td> */}
+
                                         </tr>
                                     ))
                                 )}

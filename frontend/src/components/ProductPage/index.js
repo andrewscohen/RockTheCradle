@@ -71,7 +71,7 @@ const ProductPage = () => {
 
     let rentalPrice;
     return (
-        <div className='flex justify-evenly pt-10'>
+        <div className='flex justify-evenly pt-40'>
             {product && (
                 <>
                     {/* Start of Left Side */}
@@ -95,10 +95,6 @@ const ProductPage = () => {
                         {/* End of Information Block */}
                         {/* Start of Cart Form */}
                         <div>
-
-
-
-
 
                             <form onSubmit={onSubmit}>
                                 {/* START: Size Block */}

@@ -29,5 +29,15 @@ router.get('/:id', asyncHandler(async (req, res) => {
     res.json(productInfo)
 }))
 
+router.get('/category/:id', asyncHandler(async (req, res) => {
+    const categoryId = await parseInt(req.params.id, 10);
+    const category = await Product.findAll(categoryId, {
+        include: [
+            { model: Category }
+        ]
+    })
+    res.json(categoryId)
+}))
+
 
 module.exports = router;
