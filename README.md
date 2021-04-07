@@ -1,36 +1,84 @@
-<p align=center>
-<img src="https://user-images.githubusercontent.com/67562159/105742635-c5a1ed00-5f09-11eb-9b0e-1f0e91adb7f0.png" width=350px height=350px/>
-</p>
-
 ## Welcome!
 Rock the Cradle is a clone of [Rent the Runway](https://www.renttherunway.com/) where users are able to rent high end fashion items without the need to invest in purchasing them outright. Rock the Cradle takes this concept and refocuses the target audience to be families with newbords and young children. In addition to clothing, Rock the Cradle will offer rentals of high dollar items associated with young children (cribs, rockers, strollers, etc).
 
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/andrewscohen/RockTheCradle">
+    <img src="https://user-images.githubusercontent.com/67562159/105742635-c5a1ed00-5f09-11eb-9b0e-1f0e91adb7f0.png" width=350px height=350px/>
+  </a>
+
+  <h3 align="center">Good Builds</h3>
+
+  <p align="center">
+    <a href="https://github.com/andrewscohen/RockTheCradle/wiki"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://rockthecradle.herokuapp.com/">View Demo</a>
+    ·
+    <a href="https://github.com/andrewscohen/RockTheCradle/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/andrewscohen/RockTheCradle/issues">Request Feature</a>
+  </p>
+</p>
+
+
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+### Built With
+- PostgreSQL
+- Express.js
+- Pug.js
+- JavaScript
+- CSS
+- Bcryptjs
+- Express-session
+- Express-validator
+- Node.js
+
+<!-- GETTING STARTED -->
+## Installation
+
+To run this application locally, you'll need to:
+
+1. `git clone` this repo
+2. `cd` into the local repo
+3. `npm install` to install the dependencies
+4. Create a `.env` file based on the `.env.example` file included in the repo with your own values
+5. Create a user on your local machine with the username and password specified in your `.env` file in PostgreSQL
+6. Run `npx dotenv sequelize db:create` to create the database
+7. If the sequelize module is not found, try running `npx dotenv sequelize-cli db:create` and replace sequelize with sequelize-cli for the rest of these commands
+8. Run `npx dotenv sequelize db:migrate` to run the migrations
+9. Run `npx dotenv sequelize db:seed:all` to seed the database
+10. Finally, start the development server with `npm start`. The scripts in the package.json should do the work. You'll see the local address you can use show up in the terminal.
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+<!-- ROADMAP -->
+## Roadmap
+
+Checkout The Planning Docs At The [Wiki](https://github.com/andrewscohen/RockTheCradle/wiki) Section
+
 ---
-## **Table of Contents**
----
-
-* [API Documentation](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/API-Documentation)
-* [Database Schema](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/Database-Schema)
-* [Front End Routes](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/Front-End-Routes)
-* [User Stories](https://github.com/andrewscohen/2020.11.badReads/wiki/User-Stories)
-* [Minimum Viable Product Feature List](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/Minimum-Viable-Product-Feature-List)
-* [User Stories](https://github.com/andrewscohen/RocktheCradle_RTR_Clone/wiki/User-Stories)
----
-This is a full stack application utilizing the following technologies: 
-### Backend Technologies:
-<img src="https://img.icons8.com/color/48/000000/postgreesql.png" width="26px" > 
-<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/sql/sql.png" width="26px">
-<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcamo.githubusercontent.com%2Ffc61dcbdb7a6e49d3adecc12194b24ab20dfa25b%2F68747470733a2f2f692e636c6f756475702e636f6d2f7a6659366c4c376546612d3330303078333030302e706e67&f=1&nofb=1" width="80px">
-
-### Frontend Technologies:
-<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" width="26"> 
-<img src="https://img.icons8.com/color/48/000000/redux.png" width="26px"/> 
-<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" width="26"> 
-<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png" width="26px"> 
-<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" width="26px">
- 
-### Environment:
-<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png" width="26"> 
-<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" width="26px">
-
-
