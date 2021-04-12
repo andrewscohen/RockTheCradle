@@ -1,7 +1,6 @@
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import './navigation.css'
 
 import * as sessionActions from '../../store/session';
 
@@ -46,8 +45,8 @@ function Navigation({ isLoaded }) {
                     <NavLink exact to="/"><img src="https://rtcmediabucket.s3.amazonaws.com/assets/rtc-transparent.png" alt="logo" className="h-20 ml-20 transition duration-100 hover:shadow ease" /></NavLink>
                 </div>
 
-                <div className="flex justify-around ml-2 mt-7 ">
-                    <div className="flex justify-around mt-7">
+                <div className="col-start-2 col-end-4">
+                    <div className="flex justify-around ml-2 mt-7 ">
                         <NavLink to='/orders/1' className="duration-100 font-body text-ltransition hover:underline hover:text-gray-500 ease">My Cart</NavLink>
                         <NavLink to='#' className="duration-100 font-body text-ltransition hover:underline hover:text-gray-500 ease">Accessories</NavLink>
                         <NavLink to='#' className="transition duration-100 font-body text-l hover:underline hover:text-gray-500 ease">Gear</NavLink>
