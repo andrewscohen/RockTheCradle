@@ -4,7 +4,11 @@ module.exports = {
   theme: {
     extend: {
       fontfamily: {
-        body: ['Nunito']
+        body: ['Nunito'],
+        logo: ['Rohza One', 'serif']
+      },
+      colors: {
+        primary: '#f6e5dc'
       }
     },
   },

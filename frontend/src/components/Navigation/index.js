@@ -1,6 +1,7 @@
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import './navigation.css'
 
 import * as sessionActions from '../../store/session';
 
@@ -28,7 +29,7 @@ function Navigation({ isLoaded }) {
     } else {
         sessionLinks = (
             <>
-                <div className="flex justify-around w-full mt-7 pr-20">
+                <div className="flex justify-around w-full mt-7 pr-20 bg-primary">
                     <NavLink to="/login" className="font-body text-l transition duration-100 hover:underline hover:text-gray-500 ease">
                         Log in
                     </NavLink>
@@ -39,14 +40,15 @@ function Navigation({ isLoaded }) {
         );
     }
     return (
-        <nav className="fixed opacity-100 h-20 z-99 bg-white shadow-md grid grid-cols-10 w-screen">
-            <div className="fixed opacity-100 h-20 z-99 shadow-md grid grid-cols-10 w-screen">
+        <nav className="fixed opacity-100 h-20 z-99 bg-primary grid grid-cols-10 w-screen">
+            <div className="fixed opacity-100 h-20 z-99 grid grid-cols-10 w-screen">
                 <div className="col-start-1 col-end-2">
-                    <NavLink exact to="/"><img src="https://rtcmediabucket.s3.amazonaws.com/assets/rtc-transparent.png" alt="logo" className="h-20 ml-20 transition duration-100 hover:shadow ease" /></NavLink>
+                    <h1 className='logo'>Rock the Cradle</h1>
+                    {/* <NavLink exact to="/"><img src="https://rtcmediabucket.s3.amazonaws.com/assets/rtc-transparent.png" alt="logo" className="h-20 ml-20 transition duration-100 hover:shadow ease" /></NavLink> */}
                 </div>
 
                 <div className="col-start-2 col-end-4">
-                    <div className="flex justify-around mt-7 ml-2 ">
+                    <div className="flex justify-around mt-7">
                         <NavLink to='/orders/1' className="font-body text-ltransition duration-100 hover:underline hover:text-gray-500 ease">My Cart</NavLink>
                         <NavLink to='#' className="font-body text-ltransition duration-100 hover:underline hover:text-gray-500 ease">Accessories</NavLink>
                         <NavLink to='#' className="font-body text-l transition duration-100 hover:underline hover:text-gray-500 ease">Gear</NavLink>
