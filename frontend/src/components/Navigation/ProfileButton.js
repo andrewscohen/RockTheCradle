@@ -31,8 +31,8 @@ function ProfileButton({ user }) {
     return (
         <>
             <button onClick={openMenu}>
-                <div className="ml-60 mt-5">
-                    <img className="rounded-full h-10" src="https://scontent-iad3-1.xx.fbcdn.net/v/t31.0-8/15626392_10103141149812575_9083256572061825643_o.jpg?_nc_cat=102&ccb=2&_nc_sid=09cbfe&_nc_ohc=4euJzJNSSTMAX_JHjZm&_nc_ht=scontent-iad3-1.xx&oh=23dbf2874cc6754dad98c53f51db8856&oe=603DA320" alt=
+                <div className="mt-5 ml-60">
+                    <img className="h-10 rounded-full" src="https://scontent-iad3-1.xx.fbcdn.net/v/t31.0-8/15626392_10103141149812575_9083256572061825643_o.jpg?_nc_cat=102&ccb=2&_nc_sid=09cbfe&_nc_ohc=4euJzJNSSTMAX_JHjZm&_nc_ht=scontent-iad3-1.xx&oh=23dbf2874cc6754dad98c53f51db8856&oe=603DA320" alt=
                         "userPhoto" />
                     {/* <i className="fas fa-user-circle" /> */}
                 </div>
