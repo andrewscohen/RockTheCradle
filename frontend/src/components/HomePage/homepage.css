@@ -2,6 +2,7 @@
 	height: 90vh;
 	width: 100%;
 	padding-top: 12vh;
+	background-color: #f6e5dc;
 }
 
 .home-page-grid {
@@ -10,4 +11,5 @@
 	margin-left: 10%;
 	display: grid;
 	grid-template-columns: 25% 25% 25% 25%;
+	background-color: white;
 }
